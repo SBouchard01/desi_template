@@ -301,14 +301,14 @@ If pushing to a repository instead of a root website, you will need to set the `
 
 ## Note to self
 > [!CAUTION]
-> This template is hosted in two repositories : https://github.com/sbouchard01/jekyll-templates and https://github.com/sbouchard01/desi-template
+> This template is hosted in two repositories : https://github.com/sbouchard01/jekyll-templates and https://github.com/sbouchard01/desi_template
 
 > [!IMPORTANT]
 > Make sure to keep both repositories in sync when making changes, by using [`git subtree`](https://git-scm.com/docs/git-subtree):
 > 
 > ```bash
 > git checkout desi
-> git subtree [pull/push] --prefix desi https://github.com/sbouchard01/desi-template.git main
+> git subtree [pull/push] --prefix desi https://github.com/sbouchard01/desi_template.git main
 > ```
 
 > [!NOTE]
