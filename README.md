@@ -263,12 +263,22 @@ The data in the website is translated in 2 different ways :
   - The function will add all available translations (or english if no translation is available) to the page, and will only display the content in the selected language.
   - To avoid recursive loading hell, please do not include static translations in static translations files.
 
+> [!TIP]
+> You can create subfolders in the `_static` collection to organize your static content files as needed, those subfolders will be ignored at compilation.
 
 > [!IMPORTANT]
 > English is always the fallback of the translations, so if a translation is not available in the selected language, the English version will be displayed instead.
 > The english content is encoded in the HTML files in the first case, and should always be provided in the _static collection files in the second case.
 
-For techincal reasons, the posts and collection pages *cannot* be translated and have instead a flag displayed to indicate the language of the content. 
+~~For techincal reasons, the posts and collection pages *cannot* be translated and have instead a flag displayed to indicate the language of the content.~~
+
+In posts, all the front matter keys can not be translated (title, excerpt), only the content of the post itself can be translated using the `_static` collection. If you do not want to translate the posts, you can simply write them in the desired language and indicate the language in the `lang` key of the front matter. 
+
+> [!TIP]
+> If you are not using the `lang` key in the front matter of the posts, you can remove the language filter in the blog page by setting `display_lang_filter` to `false` in the front matter of `blog.html`.
+
+The `static_translations` include can also be used in posts to include translated static content inside posts, but in this case, the excerpt of the post will be selected from the first language in the `site.data.lang` file (here english) which should be your fallback language and will have all HTML tags removed.
+This means that the excerpt will be empty if it starts with an image, as the HTML filtering will remove the image and leave no text to display. In this case, you should provide a custom excerpt in the front matter of the post (by using the `excerpt` key).
 
 > [!NOTE]
 > Posts ["collections tags"](#categorie-tags) (provided in the front matter) *can be translated* if provided as a key in the lang file. 
